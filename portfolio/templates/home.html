@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content%}
+{% load static %}
+
+
+<header class="row bg-black">
+    <div class="col-md-10">
+<img src="{% static 'portfolio/perfil.jpeg ' %}" alt="">
+
+    </div>
+
+    <div class="col-md-12 my-length">
+        <h1>Hola mi nombre es <strong>Jhans Deiby Echavarria Jimenez</strong> </h1>
+        <h3>Soy Desarrollador Junior </h3>
+        <p> Bienvenidos a mi portafolio Aquí encontrarás una ventana a mi pasión por el desarrollo de software. Explora con confianza, sumérgete en los proyectos que he creado . ¡Espero que disfrutes de tu visita y encuentres inspiración en la intersección de la creatividad y la tecnología! Si tienes alguna pregunta o simplemente quieres charlar sobre código, ¡no dudes en ponerte en contacto conmigo descarga mi CV </p>
+        <a href="{% static 'portfolio/cv.pdf' %}"  class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+
+    </div>
+
+
+<header>
+    <div class="row my-4 text-center">
+        <h3>Mis proyectos destacados </h3>
+        <p></p>
+
+        
+        {% for project in projects %}
+
+        <div class="col-md-4 p-6 my-6 ">
+            <div class="card bg-black card-project  text-light">
+                <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top"/>
+
+                <div class="card-body">
+
+                    <h2>{{project.title}}</h2>
+                    <P>{{project.description}}</P>
+                  
+                    {% if project.url%}
+                    <a href="{{project.url}}" class="btn btn-primary rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+                    {% endif %}
+    
+                </div>
+            </div>
+        </div>
+      
+        {% endfor %}
+        {% endblock%}
+    </div>
+
+
+
+
+ 
+   
+
